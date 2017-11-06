@@ -6,7 +6,8 @@ Settings::Settings()
 
 void Settings::Load()
 {
-	// TODO: implement this
+	int checkVal;
+	checkVal = EEPROM.read(CHECK_VAL_ADR);
 }
 
 void Settings::Save()
