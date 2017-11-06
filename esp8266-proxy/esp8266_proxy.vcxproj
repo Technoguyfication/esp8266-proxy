@@ -12,8 +12,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C5F80730-F44F-4478-BDAE-6634EFC2CA88}</ProjectGuid>
-    <RootNamespace>esp8266_proxy</RootNamespace>
-    <ProjectName>esp8266-proxy</ProjectName>
+    <RootNamespace>
+    </RootNamespace>
+    <ProjectName>esp8266_proxy</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -47,7 +48,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\esp8266-proxy;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.3.0\libraries\EEPROM;$(ProjectDir)..\..\..\..\..\..\Program Files (x86)\Arduino\libraries;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.3.0\libraries;$(ProjectDir)..\..\..\Arduino\libraries;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.3.0\cores\esp8266;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.3.0\cores\esp8266\libb64;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.3.0\cores\esp8266\spiffs;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.3.0\cores\esp8266\umm_malloc;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.3.0\variants\nodemcu;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.3.0\tools\sdk\include;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.3.0\tools\sdk\lwip\include;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\1.20.0-26-gb404fb9-2\xtensa-lx106-elf\include\c++\4.8.2;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\1.20.0-26-gb404fb9-2\xtensa-lx106-elf\include\c++\4.8.2\xtensa-lx106-elf;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\1.20.0-26-gb404fb9-2\xtensa-lx106-elf\include;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\1.20.0-26-gb404fb9-2\lib\gcc\xtensa-lx106-elf\4.8.2\include;$(ProjectDir)..\..\..\..\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.3.0\tools\sdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\esp8266-proxy;C:\Users\Hayden\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.3.0\libraries\EEPROM;C:\Program Files (x86)\Arduino\libraries;C:\Users\Hayden\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.3.0\libraries;$(ProjectDir)..\..\..\Arduino\libraries;C:\Users\Hayden\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.3.0\cores\esp8266;C:\Users\Hayden\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.3.0\cores\esp8266\libb64;C:\Users\Hayden\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.3.0\cores\esp8266\spiffs;C:\Users\Hayden\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.3.0\cores\esp8266\umm_malloc;C:\Users\Hayden\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.3.0\variants\nodemcu;C:\Users\Hayden\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.3.0\tools\sdk\include;C:\Users\Hayden\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.3.0\tools\sdk\lwip\include;C:\Users\Hayden\AppData\Local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\1.20.0-26-gb404fb9-2\xtensa-lx106-elf\include\c++\4.8.2;C:\Users\Hayden\AppData\Local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\1.20.0-26-gb404fb9-2\xtensa-lx106-elf\include\c++\4.8.2\xtensa-lx106-elf;C:\Users\Hayden\AppData\Local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\1.20.0-26-gb404fb9-2\xtensa-lx106-elf\include;C:\Users\Hayden\AppData\Local\arduino15\packages\esp8266\tools\xtensa-lx106-elf-gcc\1.20.0-26-gb404fb9-2\lib\gcc\xtensa-lx106-elf\4.8.2\include;C:\Users\Hayden\AppData\Local\arduino15\packages\esp8266\hardware\esp8266\2.3.0\tools\sdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ProjectDir)__vm\.esp8266-proxy.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
       <PreprocessorDefinitions>__ESP8266_ESp8266__;__ESP8266_ESP8266__;__ets__;ICACHE_FLASH;F_CPU=80000000L;LWIP_OPEN_SRC;ARDUINO=10805;ARDUINO_ESP8266_NODEMCU;ARDUINO_ARCH_ESP8266;ESP8266;__cplusplus=201103L;_VMICRO_INTELLISENSE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -74,14 +75,12 @@
     <ProjectCapability Include="VisualMicro" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="esp8266-proxy.ino" />
+    <None Include="esp8266_proxy.ino">
+      <FileType>CppCode</FileType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Settings.h" />
     <ClInclude Include="__vm\.esp8266-proxy.vsarduino.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Settings.cpp" />
   </ItemGroup>
   <PropertyGroup>
     <DebuggerFlavor>VisualMicroDebugger</DebuggerFlavor>
@@ -89,9 +88,4 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-  <ProjectExtensions>
-    <VisualStudio>
-      <UserProperties custom_esp8266_nodemcuv2_UploadSpeed="115200" />
-    </VisualStudio>
-  </ProjectExtensions>
 </Project>
