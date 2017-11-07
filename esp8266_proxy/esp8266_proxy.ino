@@ -31,7 +31,7 @@ void setup()
 		"Using broadcast SSID \"" +
 		settings.BroadcastSSID +
 		"\" " +
-		((settings.BroadcastSSIDHidden) ? "(hidden) " : "") +	// display hidden if it's hidden
+		((settings.BroadcastSSIDHidden) ? "(hidden) " : "") +	// display "(hidden)" if it's hidden
 		"and password \"" +
 		settings.BroadcastPass +
 		"\"");
