@@ -40,7 +40,7 @@ void setup()
 	Serial.println("Access point started.");
 
 	// this stays at the bottom of the function
-	Serial.println("Finished initialization.\nSet serial line ending to CR and type \"help\" for a list of commands.\n\n");
+	Serial.println("Finished initialization.\nSet serial line ending to CR and type \"help\" for a list of commands.\n");
 }
 
 void loop()
@@ -74,7 +74,7 @@ void ProcessCommand(String command)
 	}
 	else if (command == "setup")
 	{
-		Serial.println("\n\n-- Beginning setup --\nMake sure you're using CR line endings.\n");
+		Serial.println("\n\n-- Setup --\nMake sure you're using CR line endings.\n");
 
 		// broadcast ssid
 		String NewBSsid = SerialPrompt("Enter a new Broadcast SSID (or blank to keep same)", 0, 32);
@@ -92,15 +92,19 @@ void ProcessCommand(String command)
 			Serial.print("Hide broadcast SSID? (y/n/blank for default): ");
 
 			while (Serial.available() < 1) {}
-			char input = Serial.read();
-			if (input == 'y')
+			String input = Serial.readStringUntil(CR_CHAR);
+			input.toLowerCase();
+			if (input == "y")
 				settings.BroadcastSSIDHidden = true;
-			else if (input == 'n')
+			else if (input == "n")
 				settings.BroadcastSSIDHidden = false;
-			else if (input != CR_CHAR)
+			else if (input.length() > 0)
+			{
+				Serial.println("Error");
 				continue;
+			}
 
-			Serial.println((input == CR_CHAR) ? 'x' : input);	// print x for default
+			Serial.println((input.length() == 0) ? "x" : input);	// print x for default
 			break;
 		}
 
@@ -113,7 +117,7 @@ void ProcessCommand(String command)
 			settings.ConnectPass = NewCSsid;
 
 		settings.Save();
-		Serial.println("Setup finished! Please restart the chip.");
+		Serial.println("\n-- Setup Complete --\nPlease restart the chip.");
 		return;
 	}
 	else
