@@ -73,6 +73,8 @@ void Settings::Reset()
 	ConnectPass = "Changeme";
 
 	Save();
+
+	Serial.println("Settings reset.");
 }
 
 // Read a string from EEPROM, starting at position and lasting length bytes long
