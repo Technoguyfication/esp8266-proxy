@@ -7,6 +7,8 @@
 #include <WString.h>
 #include <ESP8266WiFi.h>
 
+#include "esp8266_proxy.h"
+#include "Utility.h"
 #include "Settings.h"
 
 // Feel free to change this to whatever is more convenient
@@ -46,7 +48,7 @@ void loop()
 	// check if any serial data is available
 	if (Serial.available() > 0)
 	{
-		String command = Serial.readStringUntil(13);
+		String command = Serial.readStringUntil(CR_CHAR);
 		ProcessCommand(command);
 	}
 }
@@ -67,6 +69,43 @@ void ProcessCommand(String command)
 	else if (command == "reset")
 	{
 		settings.Reset();
+		Serial.println("Please restart the chip.");
+		return;
+	}
+	else if (command == "setup")
+	{
+		Serial.println("\n\n-- Beginning setup --\nMake sure you're using CR line endings.");
+
+		// broadcast ssid
+		String NewBSsid = SerialPrompt("Enter a new Broadcast SSID (or blank for default)", 0, 32);
+		if (NewBSsid.length() > 0)
+			settings.BroadcastSSID = NewBSsid;
+
+		// broadcast pass
+		String NewBPass = SerialPrompt("Enter a new Broadcast Pass (or blank for default)", 0, 32);
+		if (NewBPass.length() > 0)
+			settings.BroadcastPass = NewBSsid;
+
+		// broadcast ssid hidden
+		while (true)
+		{
+			Serial.print("Hide broadcast SSID? (y/n/blank for default): ");
+
+			while (Serial.available() < 1) {}
+			char input = Serial.read();
+			if (input == 'y')
+				settings.BroadcastSSIDHidden = true;
+			else if (input == 'n')
+				settings.BroadcastSSIDHidden = false;
+			else if (input != CR_CHAR)
+				continue;
+
+			Serial.println((input == CR_CHAR) ? 'x' : input);	// print x for default
+			break;
+		}
+
+		settings.Save();
+		Serial.println("Setup finished! Please restart the chip.");
 		return;
 	}
 	else
