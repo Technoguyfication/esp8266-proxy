@@ -10,7 +10,7 @@ String SerialPrompt(String prompt, int minLen, int maxLen, char terminator)
 		String input = Serial.readStringUntil(terminator);
 		if (input.length() > maxLen || input.length() < minLen)
 		{
-			Serial.print(
+			Serial.println(
 				"Error\nPlease enter a string between " +
 				(String)minLen +
 				" and " +
@@ -19,7 +19,7 @@ String SerialPrompt(String prompt, int minLen, int maxLen, char terminator)
 			continue;
 		}
 
-		Serial.print("Done");
+		Serial.println("Done");
 		return input;
 	}
 }

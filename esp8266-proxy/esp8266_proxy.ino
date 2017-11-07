@@ -31,7 +31,7 @@ void setup()
 		"Using broadcast SSID \"" +
 		settings.BroadcastSSID +
 		"\" " +
-		((settings.BroadcastSSIDHidden) ? "(hidden)" : "") +	// display hidden if it's hidden
+		((settings.BroadcastSSIDHidden) ? "(hidden) " : "") +	// display hidden if it's hidden
 		"and password \"" +
 		settings.BroadcastPass +
 		"\"");
@@ -74,17 +74,17 @@ void ProcessCommand(String command)
 	}
 	else if (command == "setup")
 	{
-		Serial.println("\n\n-- Beginning setup --\nMake sure you're using CR line endings.");
+		Serial.println("\n\n-- Beginning setup --\nMake sure you're using CR line endings.\n");
 
 		// broadcast ssid
-		String NewBSsid = SerialPrompt("Enter a new Broadcast SSID (or blank for default)", 0, 32);
+		String NewBSsid = SerialPrompt("Enter a new Broadcast SSID (or blank to keep same)", 0, 32);
 		if (NewBSsid.length() > 0)
 			settings.BroadcastSSID = NewBSsid;
 
 		// broadcast pass
-		String NewBPass = SerialPrompt("Enter a new Broadcast Pass (or blank for default)", 0, 32);
+		String NewBPass = SerialPrompt("Enter a new Broadcast Password (or blank to keep same)", 0, 32);
 		if (NewBPass.length() > 0)
-			settings.BroadcastPass = NewBSsid;
+			settings.BroadcastPass = NewBPass;
 
 		// broadcast ssid hidden
 		while (true)
@@ -103,6 +103,14 @@ void ProcessCommand(String command)
 			Serial.println((input == CR_CHAR) ? 'x' : input);	// print x for default
 			break;
 		}
+
+		String NewCSsid = SerialPrompt("Enter the SSID of the network to connect to (or blank to keep same)", 0, 32);
+		if (NewCSsid.length() > 0)
+			settings.ConnectSSID = NewCSsid;
+
+		String NewCPass = SerialPrompt("Enter the password of the network to connect to (or blank to keep same)", 0, 32);
+		if (NewCPass.length() > 0)
+			settings.ConnectPass = NewCSsid;
 
 		settings.Save();
 		Serial.println("Setup finished! Please restart the chip.");
