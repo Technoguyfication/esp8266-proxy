@@ -2,6 +2,7 @@
 
 Settings::Settings()
 {
+	EEPROM.begin(2048);
 }
 
 void Settings::Load()
@@ -43,6 +44,9 @@ void Settings::Load()
 
 void Settings::Save()
 {
+	// write check byte
+	EEPROM.write(CHECK_VAL_ADR, CHECK_VAL);
+
 	// broadcast ssid
 	EEPROM.write(BROADCAST_SSID_LEN_ADR, BroadcastSSID.length());
 	WriteFromString(BROADCAST_SSID_ADR, BroadcastSSID);
@@ -61,6 +65,8 @@ void Settings::Save()
 
 	// other stuff
 	EEPROM.write(BROADCAST_HIDDEN_ADR, BroadcastSSIDHidden);
+
+	EEPROM.end();	// commit and GC
 }
 
 void Settings::Reset()
