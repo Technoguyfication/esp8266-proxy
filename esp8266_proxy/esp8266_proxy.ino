@@ -40,7 +40,7 @@ void setup()
 	Serial.println("Access point started.");
 
 	// this stays at the bottom of the function
-	Serial.println("Finished initialization.\nSet serial line ending to CR and type \"help\" for a list of commands.\n");
+	Serial.println("Finished initialization.\n** Set serial line ending to CR and type \"help\" for a list of commands. **\n");
 }
 
 void loop()
