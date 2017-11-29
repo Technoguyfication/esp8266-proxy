@@ -20,8 +20,8 @@ void Settings::Load()
 	int CSsidLen = EEPROM.read(CONNECT_SSID_LEN_ADR);
 	int CPassLen = EEPROM.read(CONNECT_PASS_LEN_ADR);
 
-	// check for invalid (< 1) lengths
-	if (BSsidLen < 1 || BPassLen < 1 || CSsidLen < 1 || BPassLen < 1)
+	// check for invalid lengths
+	if (BSsidLen < 1 || BPassLen < 0 || CSsidLen < 1 || BPassLen < 0)
 	{
 		Reset();
 		return;
